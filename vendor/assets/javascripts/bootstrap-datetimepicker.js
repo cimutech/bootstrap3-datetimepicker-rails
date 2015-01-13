@@ -812,7 +812,7 @@ THE SOFTWARE.
         },
         
         hackIe8 = function (e) {
-            ie = navigator.userAgent.toLowerCase().match(/msie\s([^\;]+)\;/);
+            var ie = navigator.userAgent.toLowerCase().match(/msie\s([^\;]+)\;/);
             
             if (ie && ie[1] * 1 < 9 && e.type === 'mousedown') {
                 e.target.unselectable = true;
