@@ -810,8 +810,17 @@ THE SOFTWARE.
             notifyChange(oldDate, e.type);
             return rv;
         },
+        
+        hackIe8 = function (e) {
+            ie = navigator.userAgent.toLowerCase().match(/msie\s([^\;]+)\;/);
+            
+            if (ie && ie[1] * 1 < 9 && e.type === 'mousedown') {
+                e.target.unselectable = true;
+            }
+        },
 
         stopEvent = function (e) {
+            hackIe8(e);
             e.stopPropagation();
             e.preventDefault();
         },
